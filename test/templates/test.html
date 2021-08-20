@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HI</title>
+</head>
+
+
+<body>
+    <h1>
+        주식종목 보내기(test)
+    </h1>
+    <form action="/test/" method = "post">
+        {% csrf_token %}
+        <table border=1>
+            <tr>
+                <th>주식종목</th>
+                <th>주식수</th>
+                <th>제출</th>
+            </tr>
+            <tr>
+                <td><input type="text" name = "test_stock_name"></td> <!--해당 name의 text를 서버로 보낸다-->
+                <td><input type="text" name = "test_stock_q"></td>
+                <td><input type="submit" value = "submit"></td>
+            </tr>
+            {#  if stock_name #}
+            <tr>
+                <td>{{ stock_name.text }}</td>
+                <td>{{ stock_q.text  }}</td>
+            </tr>
+            {#  endif #}
+        </table>
+    </form>
+
+
+</body>
+</html>
