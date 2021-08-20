@@ -8,3 +8,5 @@ from django.db import models
 
 class Stock(models.Model): # 상속
     text = models.CharField(max_length=255, null=False)
+    volume = models.CharField(max_length=255, null=True)
+

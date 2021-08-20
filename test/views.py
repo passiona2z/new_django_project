@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from test.models import Stock
-# Create your views here.
+from django.shortcuts import render
 
 
 
@@ -14,14 +13,17 @@ def main_view(request) :
         temp_2 = request.POST.get('test_stock_q')
 
         # DB 저장
-        stock_name = Stock()
-        stock_q = Stock()
-        stock_name.text, stock_q.text= temp_1, temp_2
+        my_stock = Stock()
+        my_stock.text, my_stock.volume = temp_1, temp_2
 
-        stock_name.save()
-        stock_q.save()
+        my_stock.save()
 
-        return render(request, 'test.html', context = {'stock_name' : stock_name, 'stock_q' : stock_q})   # 데이터 반환하기
+        stock_list = Stock.objects.all()
+
+        return render(request, 'test.html', context = {'stock_list' : stock_list} )  # 데이터 반환하기
 
     else :
-        return render(request, 'test.html', context = {'text' : 'method = get'})
+
+        stock_list = Stock.objects.all()
+
+        return render(request, 'test.html', context = {'stock_list' : stock_list} )

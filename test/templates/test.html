@@ -16,6 +16,7 @@
             <tr>
                 <th>주식종목</th>
                 <th>주식수</th>
+                <th>현재가</th>
                 <th>제출</th>
             </tr>
             <tr>
@@ -23,14 +24,25 @@
                 <td><input type="text" name = "test_stock_q"></td>
                 <td><input type="submit" value = "submit"></td>
             </tr>
-            {#  if stock_name #}
+            {% if stock_list %}
+                {%  for stock in stock_list %}
             <tr>
-                <td>{{ stock_name.text }}</td>
-                <td>{{ stock_q.text  }}</td>
+                <td>{{ stock.text }}</td>
+                <td>{{ stock.volume }}</td>
+                <td></td>
             </tr>
-            {#  endif #}
+
+                 {% endfor %}
+            {%  endif %}
         </table>
     </form>
+
+
+
+        <h1>
+
+        </h1>
+
 
 
 </body>
